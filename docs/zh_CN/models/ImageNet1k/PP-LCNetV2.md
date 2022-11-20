@@ -1,4 +1,5 @@
 # PP-LCNetV2
+
 ---
 
 ## 目录
@@ -42,13 +43,13 @@
 
 ### 1.1 模型简介
 
-骨干网络对计算机视觉下游任务的影响不言而喻，不仅对下游模型的性能影响很大，而且模型效率也极大地受此影响，但现有的大多骨干网络在真实应用中的效率并不理想，特别是缺乏针对 Intel CPU 平台所优化的骨干网络，我们测试了现有的主流轻量级模型，发现在 Intel CPU 平台上的效率并不理想，然而目前 Intel CPU 平台在工业界仍有大量使用场景，因此我们提出了 PP-LCNet 系列模型，PP-LCNetV2 是在 [PP-LCNetV1](PP-LCNet.md) 基础上所改进的。
+骨干网络对计算机视觉下游任务的影响不言而喻，不仅对下游模型的性能影响很大，而且模型效率也极大地受此影响，但现有的大多骨干网络在真实应用中的效率并不理想，特别是缺乏针对 Intel CPU 平台所优化的骨干网络，我们测试了现有的主流轻量级模型，发现在 Intel CPU 平台上的效率并不理想，然而目前 Intel CPU 平台在工业界仍有大量使用场景，因此我们提出了 PP-LCNet 系列模型，PP-LCNetV2 是在 [PP-LCNetV1](./PP-LCNet.md) 基础上所改进的。
 
 <a name="1.2"></a>
 
 ## 1.2 模型细节
 
-![](../../../images/PP-LCNetV2/net.png)
+![](../../images/PP-LCNetV2/net.png)
 
 PP-LCNetV2 模型的网络整体结构如上图所示。PP-LCNetV2 模型是在 PP-LCNetV1 的基础上优化而来，主要使用重参数化策略组合了不同大小卷积核的深度卷积，并优化了点卷积、Shortcut等。
 
@@ -58,7 +59,7 @@ PP-LCNetV2 模型的网络整体结构如上图所示。PP-LCNetV2 模型是在 
 
 卷积核的大小决定了卷积层感受野的大小，通过组合使用不同大小的卷积核，能够获取不同尺度的特征，因此 PPLCNetV2 在 Stage4、Stage5 中，在同一层组合使用 kernel size 分别为 5、3、1 的 DW 卷积，同时为了避免对模型效率的影响，使用重参数化（Re parameterization，Rep）策略对同层的 DW 卷积进行融合，如下图所示。
 
-![](../../../images/PP-LCNetV2/rep.png)
+![](../../images/PP-LCNetV2/rep.png)
 
 <a name="1.2.2"></a>
 
@@ -66,7 +67,7 @@ PP-LCNetV2 模型的网络整体结构如上图所示。PP-LCNetV2 模型是在 
 
 深度可分离卷积通常由一层 DW 卷积和一层 PW 卷积组成，用以替换标准卷积，为了使深度可分离卷积具有更强的拟合能力，我们尝试使用两层 PW 卷积，同时为了控制模型效率不受影响，两层 PW 卷积设置为：第一个在通道维度对特征图压缩，第二个再通过放大还原特征图通道，如下图所示。通过实验发现，该策略能够显著提高模型性能，同时为了平衡对模型效率带来的影响，PPLCNetV2 仅在 Stage4 中使用了该策略。
 
-![](../../../images/PP-LCNetV2/split_pw.png)
+![](../../images/PP-LCNetV2/split_pw.png)
 
 <a name="1.2.3"></a>
 
@@ -74,7 +75,7 @@ PP-LCNetV2 模型的网络整体结构如上图所示。PP-LCNetV2 模型是在 
 
 残差结构（residual）自提出以来，被诸多模型广泛使用，但在轻量级卷积神经网络中，由于残差结构所带来的元素级（element-wise）加法操作，会对模型的速度造成影响，我们在 PP-LCNetV2 中，以 Stage 为单位实验了残差结构对模型的影响，发现残差结构的使用并非一定会带来性能的提高，因此 PPLCNetV2 仅在最后一个 Stage 中的使用了残差结构：在 Block 中增加 Shortcut，如下图所示。
 
-![](../../../images/PP-LCNetV2/shortcut.png)
+![](../../images/PP-LCNetV2/shortcut.png)
 
 <a name="1.2.4"></a>
 
@@ -101,7 +102,7 @@ PPLCNetV2 目前提供的模型的精度、速度指标及预训练权重链接�
 
 **备注：**
 
-* 1. `_ssld` 表示使用 `SSLD 蒸馏`后的模型。关于 `SSLD蒸馏` 的内容，详情 [SSLD 蒸馏](../../training/advanced/knowledge_distillation.md)。
+* 1. `_ssld` 表示使用 `SSLD 蒸馏`后的模型。关于 `SSLD蒸馏` 的内容，详情 [SSLD 蒸馏](../advanced_tutorials/knowledge_distillation.md)。
 * 2. PP-LCNetV2 更多模型指标及权重，敬请期待。
 
 在不使用额外数据的前提下，PPLCNetV2_base 模型在图像分类 ImageNet 数据集上能够取得超过 77% 的 Top1 Acc，同时在 Intel CPU 平台的推理时间在 4.4 ms 以下，如下表所示，其中推理时间基于 Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz 硬件平台，OpenVINO 推理平台。
@@ -168,7 +169,7 @@ Predict complete
 ```python
 from paddleclas import PaddleClas
 clas = PaddleClas(model_name='PPLCNetV2_base')
-infer_imgs='docs/images/deployment/whl_demo.jpg'
+infer_imgs='docs/images/inference_deployment/whl_demo.jpg'
 result=clas.predict(infer_imgs)
 print(next(result))
 ```
@@ -181,6 +182,7 @@ print(next(result))
 [{'class_ids': [8, 7, 86, 82, 83], 'scores': [0.8859, 0.07156, 0.00588, 0.00047, 0.00034], 'label_names': ['hen', 'cock', 'partridge', 'ruffed grouse, partridge, Bonasa umbellus', 'prairie chicken, prairie grouse, prairie fowl'], 'filename': 'docs/images/inference_deployment/whl_demo.jpg'}]
 ```
 
+
 <a name="3"></a>
 
 ## 3. 模型训练、评估和预测
@@ -189,13 +191,14 @@ print(next(result))
 
 ### 3.1 环境配置
 
-* 安装：请先参考文档[环境准备](../../installation.md) 配置 PaddleClas 运行环境。
+* 安装：请先参考文档[环境准备](../installation/install_paddleclas.md) 配置 PaddleClas 运行环境。
 
 <a name="3.2"></a>
 
 ### 3.2 数据准备
 
 请在[ImageNet 官网](https://www.image-net.org/)准备 ImageNet-1k 相关的数据。
+
 
 进入 PaddleClas 目录。
 
@@ -222,13 +225,13 @@ cd path_to_PaddleClas
 
 **备注：**
 
-* 关于 `train_list.txt`、`val_list.txt`的格式说明，可以参考[PaddleClas分类数据集格式说明](../../training/single_label_classification/dataset.md#1-数据集格式说明) 。
+* 关于 `train_list.txt`、`val_list.txt`的格式说明，可以参考[PaddleClas分类数据集格式说明](../data_preparation/classification_dataset.md#1-数据集格式说明) 。
 
-**备注：**
 
 <a name="3.3"></a>
 
 ### 3.3 模型训练
+
 
 在 `ppcls/configs/ImageNet/PPLCNetV2/PPLCNetV2_base.yaml` 中提供了 PPLCNetV2_base 训练配置，可以通过如下脚本启动训练：
 
@@ -239,6 +242,7 @@ python3 -m paddle.distributed.launch \
     tools/train.py \
         -c ppcls/configs/ImageNet/PPLCNetV2/PPLCNetV2_base.yaml
 ```
+
 
 **备注：**
 
@@ -284,6 +288,8 @@ python3 tools/infer.py \
 
 * 默认输出的是 Top-5 的值，如果希望输出 Top-k 的值，可以指定`-o Infer.PostProcess.topk=k`，其中，`k` 为您指定的值。
 
+
+
 <a name="4"></a>
 
 ## 4. 模型推理部署
@@ -295,6 +301,7 @@ python3 tools/infer.py \
 Paddle Inference 是飞桨的原生推理库， 作用于服务器端和云端，提供高性能的推理能力。相比于直接基于预训练模型进行预测，Paddle Inference可使用MKLDNN、CUDNN、TensorRT 进行预测加速，从而实现更优的推理性能。更多关于Paddle Inference推理引擎的介绍，可以参考[Paddle Inference官网教程](https://www.paddlepaddle.org.cn/documentation/docs/zh/guides/infer/inference/inference_cn.html)。
 
 当使用 Paddle Inference 推理时，加载的模型类型为 inference 模型。本案例提供了两种获得 inference 模型的方法，如果希望得到和文档相同的结果，请选择[直接下载 inference 模型](#6.1.2)的方式。
+
 
 <a name="4.1.1"></a>
 
@@ -316,6 +323,7 @@ python3 tools/export_model.py \
 │   ├── inference.pdiparams.info
 │   └── inference.pdmodel
 ```
+
 
 <a name="4.1.2"></a>
 
@@ -365,7 +373,7 @@ python3 python/predict_cls.py -c configs/inference_cls.yaml -o Global.inference_
 输出结果如下。
 
 ```
-ILSVRC2012_val_00000010.jpeg:    class id(s): [332, 153, 229, 204, 265], score(s): [0.28, 0.25, 0.03, 0.02, 0.02], label_name(s): ['Angora, Angora rabbit', 'Maltese dog, Maltese terrier, Maltese', 'Old English sheepdog, bobtail', 'Lhasa, Lhasa apso', 'toy poodle']
+ILSVRC2012_val_00000010.jpeg:	class id(s): [332, 153, 229, 204, 265], score(s): [0.28, 0.25, 0.03, 0.02, 0.02], label_name(s): ['Angora, Angora rabbit', 'Maltese dog, Maltese terrier, Maltese', 'Old English sheepdog, bobtail', 'Lhasa, Lhasa apso', 'toy poodle']
 ```
 
 <a name="4.2.2"></a>  
@@ -382,17 +390,18 @@ python3 python/predict_cls.py -c configs/inference_cls.yaml -o Global.inference_
 终端中会输出该文件夹内所有图像的分类结果，如下所示。
 
 ```
-ILSVRC2012_val_00000010.jpeg:    class id(s): [332, 153, 229, 204, 265], score(s): [0.28, 0.25, 0.03, 0.02, 0.02], label_name(s): ['Angora, Angora rabbit', 'Maltese dog, Maltese terrier, Maltese', 'Old English sheepdog, bobtail', 'Lhasa, Lhasa apso', 'toy poodle']
-ILSVRC2012_val_00010010.jpeg:    class id(s): [626, 531, 761, 487, 673], score(s): [0.64, 0.06, 0.03, 0.02, 0.01], label_name(s): ['lighter, light, igniter, ignitor', 'digital watch', 'remote control, remote', 'cellular telephone, cellular phone, cellphone, cell, mobile phone', 'mouse, computer mouse']
-ILSVRC2012_val_00020010.jpeg:    class id(s): [178, 209, 246, 181, 211], score(s): [0.97, 0.00, 0.00, 0.00, 0.00], label_name(s): ['Weimaraner', 'Chesapeake Bay retriever', 'Great Dane', 'Bedlington terrier', 'vizsla, Hungarian pointer']
-ILSVRC2012_val_00030010.jpeg:    class id(s): [80, 143, 81, 137, 98], score(s): [0.91, 0.01, 0.00, 0.00, 0.00], label_name(s): ['black grouse', 'oystercatcher, oyster catcher', 'ptarmigan', 'American coot, marsh hen, mud hen, water hen, Fulica americana', 'red-breasted merganser, Mergus serrator'
+ILSVRC2012_val_00000010.jpeg:	class id(s): [332, 153, 229, 204, 265], score(s): [0.28, 0.25, 0.03, 0.02, 0.02], label_name(s): ['Angora, Angora rabbit', 'Maltese dog, Maltese terrier, Maltese', 'Old English sheepdog, bobtail', 'Lhasa, Lhasa apso', 'toy poodle']
+ILSVRC2012_val_00010010.jpeg:	class id(s): [626, 531, 761, 487, 673], score(s): [0.64, 0.06, 0.03, 0.02, 0.01], label_name(s): ['lighter, light, igniter, ignitor', 'digital watch', 'remote control, remote', 'cellular telephone, cellular phone, cellphone, cell, mobile phone', 'mouse, computer mouse']
+ILSVRC2012_val_00020010.jpeg:	class id(s): [178, 209, 246, 181, 211], score(s): [0.97, 0.00, 0.00, 0.00, 0.00], label_name(s): ['Weimaraner', 'Chesapeake Bay retriever', 'Great Dane', 'Bedlington terrier', 'vizsla, Hungarian pointer']
+ILSVRC2012_val_00030010.jpeg:	class id(s): [80, 143, 81, 137, 98], score(s): [0.91, 0.01, 0.00, 0.00, 0.00], label_name(s): ['black grouse', 'oystercatcher, oyster catcher', 'ptarmigan', 'American coot, marsh hen, mud hen, water hen, Fulica americana', 'red-breasted merganser, Mergus serrator'
 ```
+
 
 <a name="4.3"></a>
 
 ### 4.3 基于 C++ 预测引擎推理
 
-PaddleClas 提供了基于 C++ 预测引擎推理的示例，您可以参考[服务器端 C++ 预测](../../deployment/image_classification/cpp/linux.md)来完成相应的推理部署。如果您使用的是 Windows 平台，可以参考[基于 Visual Studio 2019 Community CMake 编译指南](../../deployment/image_classification/cpp/windows.md)完成相应的预测库编译和模型预测工作。
+PaddleClas 提供了基于 C++ 预测引擎推理的示例，您可以参考[服务器端 C++ 预测](../inference_deployment/cpp_deploy.md)来完成相应的推理部署。如果您使用的是 Windows 平台，可以参考[基于 Visual Studio 2019 Community CMake 编译指南](../inference_deployment/cpp_deploy_on_windows.md)完成相应的预测库编译和模型预测工作。
 
 <a name="4.4"></a>
 
@@ -400,7 +409,7 @@ PaddleClas 提供了基于 C++ 预测引擎推理的示例，您可以参考[服
 
 Paddle Serving 提供高性能、灵活易用的工业级在线推理服务。Paddle Serving 支持 RESTful、gRPC、bRPC 等多种协议，提供多种异构硬件和多种操作系统环境下推理解决方案。更多关于Paddle Serving 的介绍，可以参考[Paddle Serving 代码仓库](https://github.com/PaddlePaddle/Serving)。
 
-PaddleClas 提供了基于 Paddle Serving 来完成模型服务化部署的示例，您可以参考[模型服务化部署](../../deployment/image_classification/paddle_serving.md)来完成相应的部署工作。
+PaddleClas 提供了基于 Paddle Serving 来完成模型服务化部署的示例，您可以参考[模型服务化部署](../inference_deployment/paddle_serving_deploy.md)来完成相应的部署工作。
 
 <a name="4.5"></a>
 
@@ -408,7 +417,7 @@ PaddleClas 提供了基于 Paddle Serving 来完成模型服务化部署的示�
 
 Paddle Lite 是一个高性能、轻量级、灵活性强且易于扩展的深度学习推理框架，定位于支持包括移动端、嵌入式以及服务器端在内的多硬件平台。更多关于 Paddle Lite 的介绍，可以参考[Paddle Lite 代码仓库](https://github.com/PaddlePaddle/Paddle-Lite)。
 
-PaddleClas 提供了基于 Paddle Lite 来完成模型端侧部署的示例，您可以参考[端侧部署](../../deployment/image_classification/paddle_lite.md)来完成相应的部署工作。
+PaddleClas 提供了基于 Paddle Lite 来完成模型端侧部署的示例，您可以参考[端侧部署](../inference_deployment/paddle_lite_deploy.md)来完成相应的部署工作。
 
 <a name="4.6"></a>
 
@@ -416,4 +425,4 @@ PaddleClas 提供了基于 Paddle Lite 来完成模型端侧部署的示例，�
 
 Paddle2ONNX 支持将 PaddlePaddle 模型格式转化到 ONNX 模型格式。通过 ONNX 可以完成将 Paddle 模型到多种推理引擎的部署，包括TensorRT/OpenVINO/MNN/TNN/NCNN，以及其它对 ONNX 开源格式进行支持的推理引擎或硬件。更多关于 Paddle2ONNX 的介绍，可以参考[Paddle2ONNX 代码仓库](https://github.com/PaddlePaddle/Paddle2ONNX)。
 
-PaddleClas 提供了基于 Paddle2ONNX 来完成 inference 模型转换 ONNX 模型并作推理预测的示例，您可以参考[Paddle2ONNX 模型转换与预测](../../deployment/image_classification/paddle2onnx.md)来完成相应的部署工作。
+PaddleClas 提供了基于 Paddle2ONNX 来完成 inference 模型转换 ONNX 模型并作推理预测的示例，您可以参考[Paddle2ONNX 模型转换与预测](../../../deploy/paddle2onnx/readme.md)来完成相应的部署工作。

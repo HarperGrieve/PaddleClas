@@ -24,8 +24,7 @@ from paddle.nn.initializer import TruncatedNormal, Constant
 from paddleclas.ppcls.utils.save_load import load_dygraph_pretrain, load_dygraph_pretrain_from_url
 
 MODEL_URLS = {
-    "VAN_B0":
-    "https://paddle-imagenet-models-name.bj.bcebos.com/dygraph/VAN_B0_pretrained.pdparams",
+    "VAN_tiny": "",  # TODO
 }
 
 __all__ = list(MODEL_URLS.keys())
@@ -307,7 +306,7 @@ def _load_pretrained(pretrained, model, model_url, use_ssld=False):
         )
 
 
-def VAN_B0(pretrained=False, use_ssld=False, **kwargs):
+def VAN_tiny(pretrained=False, use_ssld=False, **kwargs):
     model = VAN(embed_dims=[32, 64, 160, 256],
                 mlp_ratios=[8, 8, 4, 4],
                 norm_layer=partial(
@@ -315,5 +314,5 @@ def VAN_B0(pretrained=False, use_ssld=False, **kwargs):
                 depths=[3, 3, 5, 2],
                 **kwargs)
     _load_pretrained(
-        pretrained, model, MODEL_URLS["VAN_B0"], use_ssld=use_ssld)
+        pretrained, model, MODEL_URLS["VAN_tiny"], use_ssld=use_ssld)
     return model
