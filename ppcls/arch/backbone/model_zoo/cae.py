@@ -25,7 +25,7 @@ import paddle
 import paddle.nn as nn
 import paddle.nn.functional as F
 
-from ....utils.download import get_weights_path_from_url
+from paddleclas.ppcls.utils.save_load import load_dygraph_pretrain, load_dygraph_pretrain_from_url
 
 MODEL_URLS = {
     "cae_base_patch16_224":

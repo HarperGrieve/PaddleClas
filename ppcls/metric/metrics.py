@@ -25,9 +25,9 @@ from sklearn.preprocessing import binarize
 
 from easydict import EasyDict
 
-from ppcls.metric.avg_metrics import AvgMetrics
-from ppcls.utils.misc import AverageMeter, AttrMeter
-from ppcls.utils import logger
+from paddleclas.ppcls.metric.avg_metrics import AvgMetrics
+from paddleclas.ppcls.utils.misc import AverageMeter, AttrMeter
+from paddleclas.ppcls.utils import logger
 
 
 class TopkAcc(AvgMetrics):

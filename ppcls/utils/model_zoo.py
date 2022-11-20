@@ -23,7 +23,7 @@ import tarfile
 import tqdm
 import zipfile
 
-from ..arch.utils import similar_architectures
+from paddleclas.ppcls.arch.utils import similar_architectures
 from . import logger
 
 __all__ = ['get']

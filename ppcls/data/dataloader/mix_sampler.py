@@ -17,9 +17,9 @@ from __future__ import division
 
 from paddle.io import DistributedBatchSampler, Sampler
 
-from ppcls.utils import logger
-from ppcls.data.dataloader.mix_dataset import MixDataset
-from ppcls.data import dataloader
+from paddleclas.ppcls.utils import logger
+from paddleclas.ppcls.data.dataloader.mix_dataset import MixDataset
+from paddleclas.ppcls.data import dataloader
 
 
 class MixSampler(DistributedBatchSampler):

@@ -18,28 +18,29 @@ import paddle
 import numpy as np
 from paddle.io import DistributedBatchSampler, BatchSampler, DataLoader
 from ppcls.utils import logger
+from paddleclas.ppcls.utils import logger
 
-from ppcls.data import dataloader
+from paddleclas.ppcls.data import dataloader
 # dataset
-from ppcls.data.dataloader.imagenet_dataset import ImageNetDataset
-from ppcls.data.dataloader.multilabel_dataset import MultiLabelDataset
-from ppcls.data.dataloader.common_dataset import create_operators
-from ppcls.data.dataloader.vehicle_dataset import CompCars, VeriWild
-from ppcls.data.dataloader.logo_dataset import LogoDataset
-from ppcls.data.dataloader.icartoon_dataset import ICartoonDataset
-from ppcls.data.dataloader.mix_dataset import MixDataset
-from ppcls.data.dataloader.multi_scale_dataset import MultiScaleDataset
-from ppcls.data.dataloader.person_dataset import Market1501, MSMT17
-from ppcls.data.dataloader.face_dataset import FiveValidationDataset, AdaFaceDataset
+from paddleclas.ppcls.data.dataloader.imagenet_dataset import ImageNetDataset
+from paddleclas.ppcls.data.dataloader.multilabel_dataset import MultiLabelDataset
+from paddleclas.ppcls.data.dataloader.common_dataset import create_operators
+from paddleclas.ppcls.data.dataloader.vehicle_dataset import CompCars, VeriWild
+from paddleclas.ppcls.data.dataloader.logo_dataset import LogoDataset
+from paddleclas.ppcls.data.dataloader.icartoon_dataset import ICartoonDataset
+from paddleclas.ppcls.data.dataloader.mix_dataset import MixDataset
+from paddleclas.ppcls.data.dataloader.multi_scale_dataset import MultiScaleDataset
+from paddleclas.ppcls.data.dataloader.person_dataset import Market1501, MSMT17
+from paddleclas.ppcls.data.dataloader.face_dataset import FiveValidationDataset, AdaFaceDataset
 
 
 # sampler
-from ppcls.data.dataloader.DistributedRandomIdentitySampler import DistributedRandomIdentitySampler
-from ppcls.data.dataloader.pk_sampler import PKSampler
-from ppcls.data.dataloader.mix_sampler import MixSampler
-from ppcls.data.dataloader.multi_scale_sampler import MultiScaleSampler
-from ppcls.data import preprocess
-from ppcls.data.preprocess import transform
+from paddleclas.ppcls.data.dataloader.DistributedRandomIdentitySampler import DistributedRandomIdentitySampler
+from paddleclas.ppcls.data.dataloader.pk_sampler import PKSampler
+from paddleclas.ppcls.data.dataloader.mix_sampler import MixSampler
+from paddleclas.ppcls.data.dataloader.multi_scale_sampler import MultiScaleSampler
+from paddleclas.ppcls.data import preprocess
+from paddleclas.ppcls.data.preprocess import transform
 
 
 def create_operators(params, class_num=None):

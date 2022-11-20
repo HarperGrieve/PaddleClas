@@ -20,8 +20,8 @@ from paddle.nn import Conv2D, BatchNorm2D, ReLU, AdaptiveAvgPool2D, MaxPool2D
 from paddle.regularizer import L2Decay
 from paddle import ParamAttr
 
-from ..base.theseus_layer import TheseusLayer
-from ....utils.save_load import load_dygraph_pretrain, load_dygraph_pretrain_from_url
+from paddleclas.ppcls.arch.backbone.base.theseus_layer import TheseusLayer
+from paddleclas.ppcls.utils.save_load import load_dygraph_pretrain, load_dygraph_pretrain_from_url
 
 MODEL_URLS = {
     "PPHGNet_tiny":

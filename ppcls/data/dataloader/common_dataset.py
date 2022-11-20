@@ -19,9 +19,9 @@ import numpy as np
 from paddle.io import Dataset
 import cv2
 
-from ppcls.data import preprocess
-from ppcls.data.preprocess import transform
-from ppcls.utils import logger
+from paddleclas.ppcls.data import preprocess
+from paddleclas.ppcls.data.preprocess import transform
+from paddleclas.ppcls.utils import logger
 
 
 def create_operators(params):

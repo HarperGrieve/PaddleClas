@@ -26,9 +26,8 @@ from paddle.nn.initializer import Uniform
 from paddle.regularizer import L2Decay
 import math
 
-from ....utils import logger
-from ..base.theseus_layer import TheseusLayer
-from ....utils.save_load import load_dygraph_pretrain, load_dygraph_pretrain_from_url
+from paddleclas.ppcls.arch.backbone.base.theseus_layer import TheseusLayer
+from paddleclas.ppcls.utils.save_load import load_dygraph_pretrain, load_dygraph_pretrain_from_url
 
 MODEL_URLS = {
     "ResNet18":
@@ -310,7 +309,6 @@ class ResNet(TheseusLayer):
         if len(self.lr_mult_list) != 5:
             msg = "lr_mult_list length should be 5 but got {}, default lr_mult_list used".format(
                 len(self.lr_mult_list))
-            logger.warning(msg)
             self.lr_mult_list = [1.0, 1.0, 1.0, 1.0, 1.0]
 
         assert isinstance(self.stride_list, (

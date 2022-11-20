@@ -19,7 +19,7 @@ from __future__ import print_function
 import inspect
 
 from paddle import optimizer as optim
-from ppcls.utils import logger
+from paddleclas.ppcls.utils import logger
 
 
 class SGD(object):

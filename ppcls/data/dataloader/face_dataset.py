@@ -9,7 +9,7 @@ from paddle.vision import transforms
 from paddle.vision.transforms import functional as F
 from paddle.io import Dataset
 from .common_dataset import create_operators
-from ppcls.data.preprocess import transform as transform_func
+from paddleclas.ppcls.data.preprocess import transform as transform_func
 
 # code is based on AdaFace: https://github.com/mk-minchul/AdaFace
 

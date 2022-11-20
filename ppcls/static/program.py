@@ -31,14 +31,15 @@ from paddle.distributed.fleet import DistributedStrategy
 # from ppcls.optimizer import OptimizerBuilder
 # from ppcls.optimizer.learning_rate import LearningRateBuilder
 
-from ppcls.arch import build_model
-from ppcls.loss import build_loss
-from ppcls.metric import build_metrics
-from ppcls.optimizer import build_optimizer
-from ppcls.optimizer import build_lr_scheduler
 
-from ppcls.utils.misc import AverageMeter
-from ppcls.utils import logger, profiler
+from paddleclas.ppcls.arch import build_model
+from paddleclas.ppcls.loss import build_loss
+from paddleclas.ppcls.metric import build_metrics
+from paddleclas.ppcls.optimizer import build_optimizer
+from paddleclas.ppcls.optimizer import build_lr_scheduler
+
+from paddleclas.ppcls.utils.misc import AverageMeter
+from paddleclas.ppcls.utils import logger, profiler
 
 
 def create_feeds(image_shape, use_mix=False, class_num=None, dtype="float32"):

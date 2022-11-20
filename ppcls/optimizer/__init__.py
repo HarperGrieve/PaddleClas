@@ -20,7 +20,7 @@ import copy
 import paddle
 from typing import Dict, List
 
-from ppcls.utils import logger
+from paddleclas.ppcls.utils import logger
 
 from . import optimizer
 

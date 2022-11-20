@@ -11,4 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from ppcls.engine.train.train import train_epoch
+from paddleclas.ppcls.engine.train.train import train_epoch
+from . import train
+from . import utils

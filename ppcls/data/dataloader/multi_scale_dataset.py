@@ -22,11 +22,11 @@ from paddle.vision import transforms
 import cv2
 import warnings
 
-from ppcls.data import preprocess
-from ppcls.data.preprocess import transform
-from ppcls.data.preprocess.ops.operators import DecodeImage
-from ppcls.utils import logger
-from ppcls.data.dataloader.common_dataset import create_operators
+from paddleclas.ppcls.data import preprocess
+from paddleclas.ppcls.data.preprocess import transform
+from paddleclas.ppcls.data.preprocess.ops.operators import DecodeImage
+from paddleclas.ppcls.utils import logger
+from paddleclas.ppcls.data.dataloader.common_dataset import create_operators
 
 
 class MultiScaleDataset(Dataset):

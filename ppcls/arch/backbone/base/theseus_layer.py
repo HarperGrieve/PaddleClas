@@ -15,7 +15,7 @@
 from typing import Tuple, List, Dict, Union, Callable, Any
 
 from paddle import nn
-from ....utils import logger
+from paddleclas.ppcls.utils import logger
 
 
 class Identity(nn.Layer):

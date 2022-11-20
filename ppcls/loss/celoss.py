@@ -18,7 +18,7 @@ import paddle
 import paddle.nn as nn
 import paddle.nn.functional as F
 
-from ppcls.utils import logger
+from paddleclas.ppcls.utils import logger
 
 
 class CELoss(nn.Layer):

@@ -20,8 +20,8 @@ import random
 
 import numpy as np
 
-from ppcls.utils import logger
-from ppcls.data.preprocess.ops.fmix import sample_mask
+from paddleclas.ppcls.utils import logger
+from paddleclas.ppcls.data.preprocess.ops.fmix import sample_mask
 
 import paddle
 import paddle.nn.functional as F

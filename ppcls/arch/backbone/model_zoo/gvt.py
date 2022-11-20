@@ -22,10 +22,10 @@ import paddle.nn as nn
 import paddle.nn.functional as F
 from paddle.regularizer import L2Decay
 
-from .vision_transformer import trunc_normal_, normal_, zeros_, ones_, to_2tuple, DropPath, Identity, Mlp
-from .vision_transformer import Block as ViTBlock
+from paddleclas.ppcls.arch.backbone.model_zoo.vision_transformer import trunc_normal_, normal_, zeros_, ones_, to_2tuple, DropPath, Identity, Mlp
+from paddleclas.ppcls.arch.backbone.model_zoo.vision_transformer import Block as ViTBlock
 
-from ....utils.save_load import load_dygraph_pretrain, load_dygraph_pretrain_from_url
+from paddleclas.ppcls.utils.save_load import load_dygraph_pretrain, load_dygraph_pretrain_from_url
 
 MODEL_URLS = {
     "pcpvt_small":

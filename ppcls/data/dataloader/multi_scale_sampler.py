@@ -5,7 +5,7 @@ import math
 import random
 import numpy as np
 
-from ppcls import data
+from paddleclas.ppcls import data
 
 
 class MultiScaleSampler(Sampler):

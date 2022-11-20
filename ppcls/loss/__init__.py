@@ -2,7 +2,7 @@ import copy
 
 import paddle
 import paddle.nn as nn
-from ppcls.utils import logger
+from paddleclas.ppcls.utils import logger
 
 from .celoss import CELoss, MixCELoss
 from .googlenetloss import GoogLeNetLoss

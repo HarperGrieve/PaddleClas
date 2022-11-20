@@ -27,12 +27,12 @@ import paddle
 from paddle.distributed import fleet
 from visualdl import LogWriter
 
-from ppcls.data import build_dataloader
-from ppcls.utils.config import get_config, print_config
-from ppcls.utils import logger
-from ppcls.utils.logger import init_logger
-from ppcls.static.save_load import init_model, save_model
-from ppcls.static import program
+from paddleclas.ppcls.data import build_dataloader
+from paddleclas.ppcls.utils.config import get_config, print_config
+from paddleclas.ppcls.utils import logger
+from paddleclas.ppcls.utils.logger import init_logger
+from paddleclas.ppcls.static.save_load import init_model, save_model
+from paddleclas.ppcls.static import program
 
 
 def parse_args():

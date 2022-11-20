@@ -18,9 +18,8 @@ import time
 import platform
 import paddle
 
-from ppcls.utils.misc import AverageMeter
-from ppcls.utils import logger
-
+from paddleclas.ppcls.utils.misc import AverageMeter
+from paddleclas.ppcls.utils import logger
 
 def classification_eval(engine, epoch_id=0):
     if hasattr(engine.eval_metric_func, "reset"):

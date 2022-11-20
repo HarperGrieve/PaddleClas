@@ -18,8 +18,8 @@ import numpy as np
 import os
 import cv2
 
-from ppcls.data.preprocess import transform
-from ppcls.utils import logger
+from paddleclas.ppcls.data.preprocess import transform
+from paddleclas.ppcls.utils import logger
 
 from .common_dataset import CommonDataset
 

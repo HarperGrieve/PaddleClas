@@ -23,28 +23,27 @@ from paddle import nn
 import numpy as np
 import random
 
-from ppcls.utils.check import check_gpu
-from ppcls.utils.misc import AverageMeter
-from ppcls.utils import logger
-from ppcls.utils.logger import init_logger
-from ppcls.utils.config import print_config
-from ppcls.data import build_dataloader
-from ppcls.arch import build_model, RecModel, DistillationModel, TheseusLayer
-from ppcls.arch import apply_to_static
-from ppcls.loss import build_loss
-from ppcls.metric import build_metrics
-from ppcls.optimizer import build_optimizer
-from ppcls.utils.ema import ExponentialMovingAverage
-from ppcls.utils.save_load import load_dygraph_pretrain, load_dygraph_pretrain_from_url
-from ppcls.utils.save_load import init_model
-from ppcls.utils import save_load
+from paddleclas.ppcls.utils.misc import AverageMeter
+from paddleclas.ppcls.utils import logger
+from paddleclas.ppcls.utils.logger import init_logger
+from paddleclas.ppcls.utils.config import print_config
+from paddleclas.ppcls.data import build_dataloader
+from paddleclas.ppcls.arch import build_model, RecModel, DistillationModel, TheseusLayer
+from paddleclas.ppcls.arch import apply_to_static
+from paddleclas.ppcls.loss import build_loss
+from paddleclas.ppcls.metric import build_metrics
+from paddleclas.ppcls.optimizer import build_optimizer
+from paddleclas.ppcls.utils.save_load import load_dygraph_pretrain, load_dygraph_pretrain_from_url
+from paddleclas.ppcls.utils.save_load import init_model
+from paddleclas.ppcls.utils import save_load
 
-from ppcls.data.utils.get_image_list import get_image_list
-from ppcls.data.postprocess import build_postprocess
-from ppcls.data import create_operators
-from ppcls.engine.train import train_epoch
-from ppcls.engine import evaluation
-from ppcls.arch.gears.identity_head import IdentityHead
+from paddleclas.ppcls.data.utils.get_image_list import get_image_list
+from paddleclas.ppcls.data.postprocess import build_postprocess
+from paddleclas.ppcls.data import create_operators
+from paddleclas.ppcls.engine.train import train_epoch
+from paddleclas.ppcls.engine import evaluation
+from paddleclas.ppcls.arch.gears.identity_head import IdentityHead
+
 
 
 class Engine(object):

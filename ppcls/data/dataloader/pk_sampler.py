@@ -19,7 +19,7 @@ from collections import defaultdict
 
 import numpy as np
 from paddle.io import DistributedBatchSampler
-from ppcls.utils import logger
+from paddleclas.ppcls.utils import logger
 
 
 class PKSampler(DistributedBatchSampler):

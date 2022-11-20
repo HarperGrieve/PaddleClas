@@ -13,8 +13,16 @@
 # limitations under the License.
 
 from . import optimizer
-
+from . import engine
+from . import arch
+from . import data
+from . import loss
+from . import metric
+from . import utils
 from .arch import *
 from .optimizer import *
 from .data import *
 from .utils import *
+from .engine import *
+from .loss import *
+from .metric import *

@@ -15,8 +15,8 @@ from __future__ import absolute_import, division, print_function
 
 import time
 import paddle
-from ppcls.engine.train.utils import update_loss, update_metric, log_info
-from ppcls.utils import profiler
+from paddleclas.ppcls.engine.train.utils import update_loss, update_metric, log_info
+from paddleclas.ppcls.utils import profiler
 
 
 def train_epoch(engine, epoch_id, print_batch_step):

@@ -17,7 +17,8 @@ from __future__ import print_function
 import numpy as np
 import os
 
-from .common_dataset import CommonDataset
+from paddleclas.ppcls.data.dataloader.common_dataset import CommonDataset
+
 
 
 class ImageNetDataset(CommonDataset):

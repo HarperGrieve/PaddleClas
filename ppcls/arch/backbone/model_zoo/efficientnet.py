@@ -26,7 +26,7 @@ import collections
 import re
 import copy
 
-from ....utils.save_load import load_dygraph_pretrain, load_dygraph_pretrain_from_url
+from paddleclas.ppcls.utils.save_load import load_dygraph_pretrain, load_dygraph_pretrain_from_ur
 
 MODEL_URLS = {
     "EfficientNetB0_small":

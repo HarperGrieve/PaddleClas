@@ -20,7 +20,7 @@ from typing import Optional
 
 import numpy as np
 import paddle
-from ppcls.utils import logger
+from paddleclas.ppcls.utils import logger
 
 
 def retrieval_eval(engine, epoch_id=0):

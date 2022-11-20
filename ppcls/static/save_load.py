@@ -24,7 +24,7 @@ import tempfile
 
 import paddle
 
-from ppcls.utils import logger
+from paddleclas.ppcls.utils import logger
 
 __all__ = ['init_model', 'save_model']
 

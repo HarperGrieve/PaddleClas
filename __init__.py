@@ -14,4 +14,6 @@
 
 __all__ = ['PaddleClas']
 from .paddleclas import PaddleClas
+from .paddleclas import Trainer
+from .paddleclas import Classifier
 from .ppcls.arch.backbone import *

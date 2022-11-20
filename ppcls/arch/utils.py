@@ -17,7 +17,7 @@ import types
 import paddle
 from difflib import SequenceMatcher
 
-from . import backbone
+from paddleclas.ppcls.arch import backbone
 from typing import Any, Dict, Union
 
 
@@ -33,8 +33,8 @@ def get_architectures():
 
 
 def get_blacklist_model_in_static_mode():
-    from ppcls.arch.backbone import distilled_vision_transformer
-    from ppcls.arch.backbone import vision_transformer
+    from paddleclas.ppcls.arch.backbone import distilled_vision_transformer
+    from paddleclas.ppcls.arch.backbone import vision_transformer
     blacklist = distilled_vision_transformer.__all__ + vision_transformer.__all__
     return blacklist
 

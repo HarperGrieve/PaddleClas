@@ -25,8 +25,8 @@ from paddle import ParamAttr
 from paddle.nn.functional import upsample
 from paddle.nn.initializer import Uniform
 
-from ..base.theseus_layer import TheseusLayer, Identity
-from ....utils.save_load import load_dygraph_pretrain, load_dygraph_pretrain_from_url
+from paddleclas.ppcls.arch.backbone.base.theseus_layer import TheseusLayer
+from paddleclas.ppcls.utils.save_load import load_dygraph_pretrain, load_dygraph_pretrain_from_url
 
 MODEL_URLS = {
     "HRNet_W18_C":

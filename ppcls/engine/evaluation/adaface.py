@@ -22,8 +22,8 @@ import sklearn
 from sklearn.model_selection import KFold
 from sklearn.decomposition import PCA
 
-from ppcls.utils.misc import AverageMeter
-from ppcls.utils import logger
+from paddleclas.ppcls.utils.misc import AverageMeter
+from paddleclas.ppcls.utils import logger
 
 
 def fuse_features_with_norm(stacked_embeddings, stacked_norms):

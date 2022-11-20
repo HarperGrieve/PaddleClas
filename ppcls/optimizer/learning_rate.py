@@ -18,7 +18,7 @@ from __future__ import (absolute_import, division, print_function,
 from paddle.optimizer import lr
 from paddle.optimizer.lr import LRScheduler
 
-from ppcls.utils import logger
+from paddleclas.ppcls.utils import logger
 
 
 class Linear(object):

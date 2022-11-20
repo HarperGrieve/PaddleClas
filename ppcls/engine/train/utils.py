@@ -14,8 +14,8 @@
 from __future__ import absolute_import, division, print_function
 
 import datetime
-from ppcls.utils import logger
-from ppcls.utils.misc import AverageMeter
+from paddleclas.ppcls.utils import logger
+from paddleclas.ppcls.utils.misc import AverageMeter
 
 
 def update_metric(trainer, out, batch, batch_size):

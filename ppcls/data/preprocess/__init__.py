@@ -12,37 +12,36 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from ppcls.data.preprocess.ops.autoaugment import ImageNetPolicy as RawImageNetPolicy
-from ppcls.data.preprocess.ops.randaugment import RandAugment as RawRandAugment
-from ppcls.data.preprocess.ops.timm_autoaugment import RawTimmAutoAugment
-from ppcls.data.preprocess.ops.cutout import Cutout
+from paddleclas.ppcls.data.preprocess.ops.autoaugment import ImageNetPolicy as RawImageNetPolicy
+from paddleclas.ppcls.data.preprocess.ops.randaugment import RandAugment as RawRandAugment
+from paddleclas.ppcls.data.preprocess.ops.timm_autoaugment import RawTimmAutoAugment
+from paddleclas.ppcls.data.preprocess.ops.cutout import Cutout
 
-from ppcls.data.preprocess.ops.hide_and_seek import HideAndSeek
-from ppcls.data.preprocess.ops.random_erasing import RandomErasing
-from ppcls.data.preprocess.ops.grid import GridMask
+from paddleclas.ppcls.data.preprocess.ops.hide_and_seek import HideAndSeek
+from paddleclas.ppcls.data.preprocess.ops.random_erasing import RandomErasing
+from paddleclas.ppcls.data.preprocess.ops.grid import GridMask
 
-from ppcls.data.preprocess.ops.operators import DecodeImage
-from ppcls.data.preprocess.ops.operators import ResizeImage
-from ppcls.data.preprocess.ops.operators import CropImage
-from ppcls.data.preprocess.ops.operators import RandCropImage
-from ppcls.data.preprocess.ops.operators import RandCropImageV2
-from ppcls.data.preprocess.ops.operators import RandFlipImage
-from ppcls.data.preprocess.ops.operators import NormalizeImage
-from ppcls.data.preprocess.ops.operators import ToCHWImage
-from ppcls.data.preprocess.ops.operators import AugMix
-from ppcls.data.preprocess.ops.operators import Pad
-from ppcls.data.preprocess.ops.operators import ToTensor
-from ppcls.data.preprocess.ops.operators import Normalize
-from ppcls.data.preprocess.ops.operators import RandomHorizontalFlip
-from ppcls.data.preprocess.ops.operators import CropWithPadding
-from ppcls.data.preprocess.ops.operators import RandomInterpolationAugment
-from ppcls.data.preprocess.ops.operators import ColorJitter
-from ppcls.data.preprocess.ops.operators import RandomCropImage
-from ppcls.data.preprocess.ops.operators import RandomRotation
-from ppcls.data.preprocess.ops.operators import Padv2
+from paddleclas.ppcls.data.preprocess.ops.operators import DecodeImage
+from paddleclas.ppcls.data.preprocess.ops.operators import ResizeImage
+from paddleclas.ppcls.data.preprocess.ops.operators import CropImage
+from paddleclas.ppcls.data.preprocess.ops.operators import RandCropImage
+from paddleclas.ppcls.data.preprocess.ops.operators import RandCropImageV2
+from paddleclas.ppcls.data.preprocess.ops.operators import RandFlipImage
+from paddleclas.ppcls.data.preprocess.ops.operators import NormalizeImage
+from paddleclas.ppcls.data.preprocess.ops.operators import ToCHWImage
+from paddleclas.ppcls.data.preprocess.ops.operators import AugMix
+from paddleclas.ppcls.data.preprocess.ops.operators import Pad
+from paddleclas.ppcls.data.preprocess.ops.operators import ToTensor
+from paddleclas.ppcls.data.preprocess.ops.operators import Normalize
+from paddleclas.ppcls.data.preprocess.ops.operators import RandomHorizontalFlip
+from paddleclas.ppcls.data.preprocess.ops.operators import CropWithPadding
+from paddleclas.ppcls.data.preprocess.ops.operators import RandomInterpolationAugment
+from paddleclas.ppcls.data.preprocess.ops.operators import ColorJitter
+from paddleclas.ppcls.data.preprocess.ops.operators import RandomCropImage
+from paddleclas.ppcls.data.preprocess.ops.operators import Padv2
 
-from ppcls.data.preprocess.batch_ops.batch_operators import MixupOperator, CutmixOperator, OpSampler, FmixOperator
-from ppcls.data.preprocess.batch_ops.batch_operators import MixupCutmixHybrid
+from paddleclas.ppcls.data.preprocess.batch_ops.batch_operators import MixupOperator, CutmixOperator, OpSampler, FmixOperator
+
 
 import numpy as np
 from PIL import Image

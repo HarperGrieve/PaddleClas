@@ -22,8 +22,8 @@ import sys
 import paddle
 from paddle import is_compiled_with_cuda
 
-from ..arch.utils import get_architectures, similar_architectures, get_blacklist_model_in_static_mode
-from . import logger
+from paddleclas.ppcls.arch.utils import get_architectures, similar_architectures, get_blacklist_model_in_static_mode
+from paddleclas.ppcls.utils import logger
 
 
 def check_version():
