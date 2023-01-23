@@ -25,7 +25,7 @@ import paddle
 from paddle.distributed import ParallelEnv
 
 from resnet import ResNet50
-from ppcls.utils.save_load import load_dygraph_pretrain
+from paddleclas.ppcls.utils.save_load import load_dygraph_pretrain
 
 
 def parse_args():

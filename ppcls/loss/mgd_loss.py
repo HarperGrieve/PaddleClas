@@ -15,7 +15,7 @@
 import paddle
 import paddle.nn as nn
 import paddle.nn.functional as F
-from ppcls.utils.initializer import kaiming_normal_
+from paddleclas.ppcls.utils.initializer import kaiming_normal_
 
 
 class MGDLoss(nn.Layer):

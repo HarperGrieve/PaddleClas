@@ -28,8 +28,8 @@ import paddle.nn.functional as F
 from paddle.distributed import fleet
 from paddle.distributed.fleet import DistributedStrategy
 
-# from ppcls.optimizer import OptimizerBuilder
-# from ppcls.optimizer.learning_rate import LearningRateBuilder
+# from paddleclas.ppcls.optimizer import OptimizerBuilder
+# from paddleclas.ppcls.optimizer.learning_rate import LearningRateBuilder
 
 
 from paddleclas.ppcls.arch import build_model

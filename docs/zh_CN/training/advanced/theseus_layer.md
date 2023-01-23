@@ -22,7 +22,7 @@
 如需基于 `TheseusLayer` 构建新的网络结构，只需继承 `TheseusLayer` 即可：
 
 ```python
-from ppcls.arch.backbone.base.theseus_layer import TheseusLayer
+from paddleclas.ppcls.arch.backbone.base.theseus_layer import TheseusLayer
 
 class net(TheseusLayer):
     def __init__():

@@ -24,7 +24,7 @@ from paddle.nn import ReLU, Sigmoid
 from paddle.nn import Layer
 from paddle.nn import PReLU
 
-# from ppcls.arch.backbone.legendary_models.resnet import _load_pretrained
+# from paddleclas.ppcls.arch.backbone.legendary_models.resnet import _load_pretrained
 
 
 class Flatten(Layer):

@@ -17,7 +17,7 @@ import copy
 import paddle
 import numpy as np
 from paddle.io import DistributedBatchSampler, BatchSampler, DataLoader
-from ppcls.utils import logger
+from paddleclas.ppcls.utils import logger
 from paddleclas.ppcls.utils import logger
 
 from paddleclas.ppcls.data import dataloader
@@ -72,7 +72,7 @@ def build_dataloader(config, mode, device, use_dali=False, seed=None):
     ], "Dataset mode should be Train, Eval, Test, Gallery, Query"
     # build dataset
     if use_dali:
-        from ppcls.data.dataloader.dali import dali_dataloader
+        from paddleclas.ppcls.data.dataloader.dali import dali_dataloader
         return dali_dataloader(
             config,
             mode,
